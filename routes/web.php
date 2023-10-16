@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\TokenController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('/apiCEG/asistencias', 'AsistenciaController');
 Route::apiResource('/apiCEG/token', 'TokenController');
 Route::post('/apiCEG/listarToken', [TokenController::class, 'getTokenAlumno']);
+Route::post('/apiCEG/listarAsistencias', [AsistenciaController::class, 'listarAsistenciaAlumno']);
+Route::post('/apiCEG/estadisticaAsistencia', [AsistenciaController::class, 'estadisticaAsistencia']); 
+Route::post('/apiCEG/estadisticaHoraEntrada', [AsistenciaController::class, 'estadisticaHoraEntrada']); 
+Route::post('/apiCEG/estadisticaHoraSalida', [AsistenciaController::class, 'estadisticaHoraSalida']); 
+Route::post('/apiCEG/listarNotificaciones', [NotificacionController::class, 'listarNotificacionAlumno']);
+Route::apiResource('/apiCEG/justificar', 'JustificacionController');
 Route::get('/', function () {
     return view('welcome');
 });

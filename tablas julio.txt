@@ -1,0 +1,30 @@
+CREATE TABLE justificar(
+id int PRIMARY KEY AUTO_INCREMENT,
+correo varchar(250),
+id_alumno int,
+descripcion varchar(350),
+telefono varchar(20),
+created_at datetime,
+updated_at datetime
+);
+
+
+ALTER TABLE justificar ADD CONSTRAINT fk_justificar_alumno FOREIGN KEY(id_alumno) REFERENCES alumno(carnet);
+
+
+
+CREATE TABLE notificacion(
+id int PRIMARY KEY AUTO_INCREMENT,
+id_alumno int,
+asunto varchar(100),
+mensaje varchar(300),
+created_at datetime,
+updated_at datetime
+);
+
+ALTER TABLE notificacion ADD CONSTRAINT fk_notificacion_alumno FOREIGN KEY(id_alumno) REFERENCES alumno(carnet);
+
+31 Julio al 13 de Octubre
+
+
+
